@@ -3,21 +3,26 @@
 # it should have a color attribute, that is silver by default
 # it should have a method called "say" that returns whatever string is passed in, with "*~*" at the beginning and end of the string
 
-# class Unicorn
-#     attr_reader :name, :color
-#     def initialize(name)
-#         @name = name
-#         @color = "silver"
-#     end
-#     def say(message)
-#         return "*~*#{message}*~*"
-#     end
-# end
+class Unicorn
+    attr_reader :name, :color
+    def initialize(name, color = "silver")
+        @name = name
+        @color = color
+    end
+    def say(message)
+        return "*~*#{message}*~*"
+    end
+end
 
-# unicorn1 = Unicorn.new("Jeremy")
-# p unicorn1.name
-# p unicorn1.color
-# p unicorn1.say("Hello!")
+unicorn1 = Unicorn.new("Jeremy")
+p unicorn1.name
+p unicorn1.color
+p unicorn1.say("Hello!")
+
+unicorn2 = Unicorn.new("Susan", "purple")
+p unicorn2.name
+p unicorn2.color
+p unicorn2.say("Well, hello there my dear!")
 
 
 #  Write a class called Vampire
@@ -104,44 +109,44 @@
 #  it should have an is_old attribute that defaults to false. once a Hobbit is 101, it is old.
 #  it should have a has_ring attribute. If the Hobbit's name is "Frodo", true, if not, false.
 
-class Hobbit
-    attr_reader :name, :age, :disposition
-    def initialize(name, disposition, age = 0, is_adult = false, is_old = false)
-        @name = name
-        @disposition = disposition
-        @age = age
-        @is_adult = is_adult
-        @is_old = is_old
-        @has_ring = false
-        if @age >= 33
-            @is_adult = true
-        end
-        if @age >= 101
-            @is_old = true
-        end
-        if @name == "Frodo"
-            @has_ring = true
-        end
-    end
-    def celebrate_birthday
-        @age = @age + 1
-        if @age >= 33
-            @is_adult = true
-        end
-        if @age >= 101
-            @is_old = true
-        end
-    end
-end
+# class Hobbit
+#     attr_reader :name, :age, :disposition
+#     def initialize(name, disposition, age = 0, is_adult = false, is_old = false)
+#         @name = name
+#         @disposition = disposition
+#         @age = age
+#         @is_adult = is_adult
+#         @is_old = is_old
+#         @has_ring = false
+#         if @age >= 33
+#             @is_adult = true
+#         end
+#         if @age >= 101
+#             @is_old = true
+#         end
+#         if @name == "Frodo"
+#             @has_ring = true
+#         end
+#     end
+#     def celebrate_birthday
+#         @age = @age + 1
+#         if @age >= 33
+#             @is_adult = true
+#         end
+#         if @age >= 101
+#             @is_old = true
+#         end
+#     end
+# end
 
-hobbit1 = Hobbit.new("Bilbo", "Cranky", 28)
-p hobbit1
-hobbit1.celebrate_birthday
-p hobbit1
-20.times.collect{hobbit1.celebrate_birthday}
-p hobbit1
-80.times.collect{hobbit1.celebrate_birthday}
-p hobbit1
+# hobbit1 = Hobbit.new("Bilbo", "Cranky", 28)
+# p hobbit1
+# hobbit1.celebrate_birthday
+# p hobbit1
+# 20.times.collect{hobbit1.celebrate_birthday}
+# p hobbit1
+# 80.times.collect{hobbit1.celebrate_birthday}
+# p hobbit1
 
-hobbit2 = Hobbit.new("Frodo", "Happy", 73)
-p hobbit2
+# hobbit2 = Hobbit.new("Frodo", "Happy", 73)
+# p hobbit2
