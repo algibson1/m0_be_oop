@@ -26,27 +26,27 @@
 #  it should have a thirsty attribute, that is true by default
 #  it should have a drink method. When called, the thirsty attribute changes to false
 
-class Vampire
-    attr_reader :name, :pet, :thirsty
-    def initialize(name, pet = "bat")
-        @name = name 
-        @thirsty = true
-        @pet = pet
-    end
-    def change_pet(new_pet)
-        @pet = new_pet
-    end
-    def drink
-        @thirsty = false
-    end
-end
+# class Vampire
+#     attr_reader :name, :pet, :thirsty
+#     def initialize(name, pet = "bat")
+#         @name = name 
+#         @thirsty = true
+#         @pet = pet
+#     end
+#     def change_pet(new_pet)
+#         @pet = new_pet
+#     end
+#     def drink
+#         @thirsty = false
+#     end
+# end
 
-vamp1 = Vampire.new("Rupert")
-p vamp1.name
-p vamp1.pet
-p vamp1.thirsty
-p vamp1.drink
-p vamp1.change_pet("owl")
+# vamp1 = Vampire.new("Rupert")
+# p vamp1.name
+# p vamp1.pet
+# p vamp1.thirsty
+# p vamp1.drink
+# p vamp1.change_pet("owl")
 
 
 
@@ -57,6 +57,43 @@ p vamp1.change_pet("owl")
 #  it should have a is_hungry attribute that is true by default
 #  it should have a eat method. If the dragon eats 4 times, it is no longer hungry
 
+class Dragon
+    attr_reader :name, :rider, :color, :is_hungry
+    def initialize(name, rider, color, is_hungry = true)
+        @name = name
+        @rider = rider
+        @color = color
+        @times_eaten = 0
+        @is_hungry = is_hungry
+    end
+    def eat
+        @times_eaten = @times_eaten + 1
+        if @times_eaten >= 4
+            @is_hungry = false
+        end
+    end      
+end
+
+dragon1 = Dragon.new("Jeff", "Sam", "Purple")
+p dragon1.name
+p dragon1.rider
+p dragon1.color
+p dragon1.is_hungry
+dragon1.eat
+dragon1.eat
+p dragon1.is_hungry
+dragon1.eat
+dragon1.eat
+p dragon1.is_hungry
+
+dragon2 = Dragon.new("Draco", "Boromir", "Red")
+p dragon2
+dragon2.eat
+dragon2.eat
+p dragon2.is_hungry
+dragon2.eat
+dragon2.eat
+p dragon2
 
 #  Write a Hobbit class
 #  it should have a dynamic name attribute (string)
