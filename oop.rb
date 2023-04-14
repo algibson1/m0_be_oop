@@ -62,43 +62,43 @@
 #  it should have a is_hungry attribute that is true by default
 #  it should have a eat method. If the dragon eats 4 times, it is no longer hungry
 
-class Dragon
-    attr_reader :name, :rider, :color, :is_hungry
-    def initialize(name, rider, color, is_hungry = true)
-        @name = name
-        @rider = rider
-        @color = color
-        @times_eaten = 0
-        @is_hungry = is_hungry
-    end
-    def eat
-        @times_eaten += 1
-        if @times_eaten >= 4
-            @is_hungry = false
-        end
-    end      
-end
+# class Dragon
+#     attr_reader :name, :rider, :color, :is_hungry
+#     def initialize(name, rider, color, is_hungry = true)
+#         @name = name
+#         @rider = rider
+#         @color = color
+#         @times_eaten = 0
+#         @is_hungry = is_hungry
+#     end
+#     def eat
+#         @times_eaten += 1
+#         if @times_eaten >= 4
+#             @is_hungry = false
+#         end
+#     end      
+# end
 
-dragon1 = Dragon.new("Jeff", "Sam", "Purple")
-p dragon1.name
-p dragon1.rider
-p dragon1.color
-p dragon1.is_hungry
-dragon1.eat
-dragon1.eat
-p dragon1.is_hungry
-dragon1.eat
-dragon1.eat
-p dragon1.is_hungry
+# dragon1 = Dragon.new("Jeff", "Sam", "Purple")
+# p dragon1.name
+# p dragon1.rider
+# p dragon1.color
+# p dragon1.is_hungry
+# dragon1.eat
+# dragon1.eat
+# p dragon1.is_hungry
+# dragon1.eat
+# dragon1.eat
+# p dragon1.is_hungry
 
-dragon2 = Dragon.new("Draco", "Boromir", "Red")
-p dragon2
-dragon2.eat
-dragon2.eat
-p dragon2.is_hungry
-dragon2.eat
-dragon2.eat
-p dragon2
+# dragon2 = Dragon.new("Draco", "Boromir", "Red")
+# p dragon2
+# dragon2.eat
+# dragon2.eat
+# p dragon2.is_hungry
+# dragon2.eat
+# dragon2.eat
+# p dragon2
 
 #  Write a Hobbit class
 #  it should have a dynamic name attribute (string)
@@ -109,44 +109,48 @@ p dragon2
 #  it should have an is_old attribute that defaults to false. once a Hobbit is 101, it is old.
 #  it should have a has_ring attribute. If the Hobbit's name is "Frodo", true, if not, false.
 
-# class Hobbit
-#     attr_reader :name, :age, :disposition
-#     def initialize(name, disposition, age = 0, is_adult = false, is_old = false)
-#         @name = name
-#         @disposition = disposition
-#         @age = age
-#         @is_adult = is_adult
-#         @is_old = is_old
-#         @has_ring = false
-#         if @age >= 33
-#             @is_adult = true
-#         end
-#         if @age >= 101
-#             @is_old = true
-#         end
-#         if @name == "Frodo"
-#             @has_ring = true
-#         end
-#     end
-#     def celebrate_birthday
-#         @age = @age + 1
-#         if @age >= 33
-#             @is_adult = true
-#         end
-#         if @age >= 101
-#             @is_old = true
-#         end
-#     end
-# end
+class Hobbit
+    attr_reader :name, :age, :disposition, :is_adult, :is_old, :has_ring
+    def initialize(name, disposition, age = 0)
+        @name = name
+        @disposition = disposition
+        @age = age
+        @is_adult = false
+        @is_old = false
+        @has_ring = has_ring?
+        if @age >= 33
+            @is_adult = true
+        end
+        if @age >= 101
+            @is_old = true
+        end
+    end
+    def has_ring?
+        @name == "Frodo"
+    end
+    def celebrate_birthday
+        @age += 1
+        if @age >= 33
+            @is_adult = true
+        end
+        if @age >= 101
+            @is_old = true
+        end
+    end
+end
 
-# hobbit1 = Hobbit.new("Bilbo", "Cranky", 28)
-# p hobbit1
-# hobbit1.celebrate_birthday
-# p hobbit1
-# 20.times.collect{hobbit1.celebrate_birthday}
-# p hobbit1
-# 80.times.collect{hobbit1.celebrate_birthday}
-# p hobbit1
 
-# hobbit2 = Hobbit.new("Frodo", "Happy", 73)
-# p hobbit2
+
+
+hobbit1 = Hobbit.new("Bilbo", "Cranky", 28)
+p hobbit1
+hobbit1.celebrate_birthday
+p hobbit1
+20.times {hobbit1.celebrate_birthday}
+p hobbit1
+80.times {hobbit1.celebrate_birthday}
+p hobbit1
+
+hobbit2 = Hobbit.new("Frodo", "Happy", 73)
+p hobbit2
+p hobbit2.has_ring
