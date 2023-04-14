@@ -3,26 +3,26 @@
 # it should have a color attribute, that is silver by default
 # it should have a method called "say" that returns whatever string is passed in, with "*~*" at the beginning and end of the string
 
-class Unicorn
-    attr_reader :name, :color
-    def initialize(name, color = "silver")
-        @name = name
-        @color = color
-    end
-    def say(message)
-        return "*~*#{message}*~*"
-    end
-end
+# class Unicorn
+#     attr_reader :name, :color
+#     def initialize(name, color = "silver")
+#         @name = name
+#         @color = color
+#     end
+#     def say(message)
+#         return "*~*#{message}*~*"
+#     end
+# end
 
-unicorn1 = Unicorn.new("Jeremy")
-p unicorn1.name
-p unicorn1.color
-p unicorn1.say("Hello!")
+# unicorn1 = Unicorn.new("Jeremy")
+# p unicorn1.name
+# p unicorn1.color
+# p unicorn1.say("Hello!")
 
-unicorn2 = Unicorn.new("Susan", "purple")
-p unicorn2.name
-p unicorn2.color
-p unicorn2.say("Well, hello there my dear!")
+# unicorn2 = Unicorn.new("Susan", "purple")
+# p unicorn2.name
+# p unicorn2.color
+# p unicorn2.say("Well, hello there my dear!")
 
 
 #  Write a class called Vampire
@@ -31,28 +31,28 @@ p unicorn2.say("Well, hello there my dear!")
 #  it should have a thirsty attribute, that is true by default
 #  it should have a drink method. When called, the thirsty attribute changes to false
 
-# class Vampire
-#     attr_reader :name, :pet, :thirsty
-#     def initialize(name, pet = "bat")
-#         @name = name 
-#         @thirsty = true
-#         @pet = pet
-#     end
-#     def change_pet(new_pet)
-#         @pet = new_pet
-#     end
-#     def drink
-#         @thirsty = false
-#     end
-# end
+class Vampire
+    attr_reader :name, :pet, :thirsty
+    def initialize(name, pet = "bat")
+        @name = name 
+        @thirsty = true
+        @pet = pet
+    end
+    def drink
+        @thirsty = false
+    end
+end
 
-# vamp1 = Vampire.new("Rupert")
-# p vamp1.name
-# p vamp1.pet
-# p vamp1.thirsty
-# p vamp1.drink
-# p vamp1.change_pet("owl")
+vamp1 = Vampire.new("Rupert")
+p vamp1.name
+p vamp1.pet
+p vamp1.thirsty
+vamp1.drink
+p vamp1.thirsty
 
+vamp2 = Vampire.new("Dracula", "owl")
+p vamp2.name
+p vamp2.pet
 
 
 #  Write a Dragon class
