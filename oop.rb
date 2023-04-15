@@ -10,7 +10,7 @@
 #         @color = color
 #     end
 #     def say(message)
-#         return "*~*#{message}*~*"
+#          "*~*#{message}*~*"
 #     end
 # end
 
@@ -110,35 +110,23 @@
 #  it should have a has_ring attribute. If the Hobbit's name is "Frodo", true, if not, false.
 
 class Hobbit
-    attr_reader :name, :age, :disposition, :is_adult, :is_old, :has_ring
+    attr_reader :name, :age, :disposition, :is_adult, :is_old
     def initialize(name, disposition, age = 0)
         @name = name
         @disposition = disposition
         @age = age
-        @is_adult = false
-        @is_old = false
-        @has_ring = has_ring?
-        if @age >= 33
-            @is_adult = true
-        end
-        if @age >= 101
-            @is_old = true
-        end
+        @is_adult = age >= 33
+        @is_old = age >= 101
     end
     def has_ring?
         @name == "Frodo"
     end
     def celebrate_birthday
         @age += 1
-        if @age >= 33
-            @is_adult = true
-        end
-        if @age >= 101
-            @is_old = true
-        end
+        @is_adult = true if @age >= 33
+        @is_old = true if @age >= 101
     end
 end
-
 
 
 
@@ -150,7 +138,8 @@ p hobbit1
 p hobbit1
 80.times {hobbit1.celebrate_birthday}
 p hobbit1
+p hobbit1.has_ring?
 
 hobbit2 = Hobbit.new("Frodo", "Happy", 73)
 p hobbit2
-p hobbit2.has_ring
+p hobbit2.has_ring?
